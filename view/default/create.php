@@ -4,14 +4,14 @@
 <input class="publishers" type="radio" name="gender" > Видавництва
 <div id="books">
 <form  method="post" name="Books" style="width: 450px;height:250px ">
-    <input type="text" class="input_form" name="book[book_name]" > <label>Книга</label><br>
-    <input type="text" class="input_form" name="book[author_name]" > <label>Ім`я автора</label><br>
-    <input type="text" class="input_form" name="book[lost_name]" > <label>Прізвище автора</label><br>
-    <input type="text" class="input_form" name="book[genre]" > <label>Жанр</label><br>
-    <input type="text" class="input_form" name="book[count_page]" > <label>кіл. стор.</label><br>
-    <input type="text" class="input_form" name="book[date_published]" > <label>рік виданя</label><br>
-    <input type="text" class="input_form" name="book[publisher]" > <label>назва редакціі</label><br>
-    <input type="text" class="input_form" name="book[date_admission]" > <label>дата поступлення</label><br>
+    <input type="text" value="<?php echo $_POST['book']['book_name']?>" class="input_form" name="book[book_name]" > <label>Книга</label><br>
+    <input type="text" value="<?php echo$_POST['book']['author_name']?>" class="input_form" name="book[author_name]" > <label>Ім`я автора</label><br>
+    <input type="text" value="<?php echo$_POST['book']['lost_name']?>" class="input_form" name="book[lost_name]" > <label>Прізвище автора</label><br>
+    <input type="text" value="<?php echo$_POST['book']['genre']?>" class="input_form" name="book[genre]" > <label>Жанр</label><br>
+    <input type="text" value="<?php echo$_POST['book']['count_page']?>" class="input_form" name="book[count_page]" > <label>кіл. стор.</label><br>
+    <input type="text" value="<?php echo$_POST['book']['date_published']?>" value="as" class="input_form" name="book[date_published]" > <label>рік виданя</label><br>
+    <input type="text" value="<?php echo$_POST['book']['publisher']?>" class="input_form" name="book[publisher]" > <label>назва редакціі</label><br>
+    <input type="text" value="<?php echo$_POST['book']['date_admission']?>" class="input_form" name="book[date_admission]" > <label>дата поступлення</label><br>
     <input type="submit" class="input_form" value="Додати"">
 </form>
 </div>

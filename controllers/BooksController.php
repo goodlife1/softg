@@ -18,10 +18,13 @@ class BooksController extends Core
 
     public function actionIndex()
     {
-
+        $order = "bk.publishing_year";
 //        $a = func_get_args();
+        if($_POST['hero']!=''){
+            $order =$_POST['hero'];
+        }
         $model = new Index();
-        $books = $model->getAllBooks();
+        $books = $model->getAllBooks($order);
         $author = $model->getAllAuthors();
         $publishers = $model->getAllPublishers();
         return $this->render('index', ['books' => $books, 'author' => $author, "publishers" => $publishers]);

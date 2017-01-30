@@ -10,9 +10,10 @@ namespace models;
 
 class Index extends \Database
 {
+ 
 
 
-    public function getAllBooks()
+    public function getAllBooks($order)
     {
 
         $query = $this->query("SELECT bk.name as book_name, au.name as author_name, au.last_name , gs.genre , 
@@ -20,7 +21,7 @@ class Index extends \Database
 from books bk  
 LEFT OUTER JOIN authors au on bk.author_id = au.author_id 
 LEFT OUTER JOIN genres gs on bk.genres_id = gs.genres_id 
-LEFT OUTER JOIN publishers ps on bk.publisher_id = ps.publisher_id");
+LEFT OUTER JOIN publishers ps on bk.publisher_id = ps.publisher_id ORDER BY ".$order);
         $result = $this->assoc($query);
 
         return $result;

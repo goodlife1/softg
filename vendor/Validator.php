@@ -32,7 +32,7 @@ class Validator
     public function isDate($value,$message)
     {
         $array = explode('-', $value);
-        if (!count($array) != 3 && !@checkdate($array[0], $array[1], $array[2])) {
+        if (!count($array) != 3 && !@checkdate($array[2], $array[1], $array[0])) {
             $this->errors[] = $message;
             return false;
         }

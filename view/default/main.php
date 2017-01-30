@@ -21,7 +21,7 @@
 </div>
 <div id="templatemo_sidebar">
 <ul class="templatemo_list">
-    <li><a href="/new_book" >Добавити книг., автор., видав.</a></li>
+    <li><a href="/books/create" >Добавити книг., автор., видав.</a></li>
     <li><a href="/books/search" > Пошук</a></li>
   
    

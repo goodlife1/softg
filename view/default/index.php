@@ -2,7 +2,14 @@
 <input class="authors" type="radio" name="gender"> Автори
 <input class="publishers" type="radio" name="gender" > Видавництва
 <div id="books">
-
+<form method="post">
+    <select  name="hero">
+        <option value="bk.name" >Книгам</option>
+        <option value="au.name">Авторас</option>
+        <option value="ps.name">Публікаціям</option>
+    </select>
+    <input type="submit">
+</form>
     <table style="width: 800px">
         <tr>
         <tr>
