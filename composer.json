@@ -3,7 +3,9 @@
     "psr-4": {
       "controllers\\": "controllers/",
       "models\\": "models/",
-      "app\\": "vendor/"
+      "app\\": "vendor/",
+      "app\\db\\": "vendor/db"
+
     }
   }
 }

@@ -1,19 +1,24 @@
 <input checked class="books" type="radio" name="gender"> Книжки
 <input class="authors" type="radio" name="gender"> Автори
-<input class="publishers" type="radio" name="gender" > Видавництва
-<div id="books">
+<input class="publishers" type="radio" name="gender"> Видавництва
 <form method="post">
-    <select  name="hero">
-        <option value="bk.name" >Книгам</option>
-        <option value="au.name">Авторас</option>
-        <option value="ps.name">Публікаціям</option>
+    <select name="sort">
+        <option >сортувати по</option>
+        <option value="name">Назві</option>
+        <option value="id"> По ід</option>
     </select>
     <input type="submit">
 </form>
+<script src="/view/default/js/jquery-3.1.1.js"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.js"></script>
+
+
+<div id="books">
+
     <table style="width: 800px">
         <tr>
         <tr>
-            <td>Книга</td>
+            <th>Книга</th>
             <th>Ім`я автора</th>
             <th>Фамилия автора</th>
             <th>Жанр</th>
@@ -21,18 +26,23 @@
             <th>рік виданя</th>
             <th>назва редакціі</th>
             <th>дата поступлення</th>
+            <th>Видалити</th>
         </tr>
         <?php
+        foreach ($model->books as $key => $value):?>
+            <tr>
+                <?php  $id = $value['id']; unset($value['id'])?>
+                <?php foreach ($value as $k => $v): ?>
+                    <td><?php echo $v ?></td>
+                <?php endforeach; ?>
+                <td>
+                    <form method="post">
+                        <input name="books[delete]" type="submit" value="<?php echo $id?>">
+                    </form>
+                </td>
+            </tr>
 
-        foreach ($books as $key => $value) {
-            $book .= "<tr>";
-            foreach ($value as $k => $v) {
-                $book .= " <td > $v </td >";
-            }
-            $book .= " </tr>";
-        }
-        echo $book;
-        ?>
+        <?php endforeach; ?>
         </tr>
 
     </table>
@@ -46,24 +56,31 @@
             <th>Народився</th>
             <th>Помер</th>
             <th>Громадянство</th>
+            <th>Видалити</th>
 
         </tr>
         <?php
+        foreach ($model->authors as $key => $value):?>
+            <tr>
+                <?php  $id = $value['id']; unset($value['id'])?>
+                <?php foreach ($value as $k => $v): ?>
+                    <td><?php echo $v ?></td>
+                <?php endforeach; ?>
+                <td>
+                <form method="post">
+                    <input name="authors[delete]" type="submit" value="<?php echo $id?>">
+                </form>
+                </td>
+            </tr>
 
-        foreach ($author as $key => $value) {
-            $aut .= "<tr>";
-            foreach ($value as $k => $v) {
-                $aut .= " <td > $v </td >";
-            }
-            $aut .= " </tr>";
-        }
-        echo $aut;
-        ?>
+        <?php endforeach; ?>
 
         </tr>
 
     </table>
 </div>
+
+
 <div id="publishers">
     <table style="width: 800px">
         <tr>
@@ -74,20 +91,24 @@
             <th>Вулиця</th>
             <th>Буд. №</th>
             <th>Індекс</th>
+            <th>Видалити</th>
 
         </tr>
         <?php
+        foreach ($model->publishers as $key => $value):?>
+            <tr>
+                <?php  $id = $value['id']; unset($value['id'])?>
+                <?php foreach ($value as $k => $v): ?>
+                    <td><?php echo $v ?></td>
+                <?php endforeach; ?>
+                <td>
+                    <form method="post">
+                        <input name="publishers[delete]" type="submit" value="<?php echo $id?>">
+                    </form>
+                </td>
+            </tr>
 
-        foreach ($publishers as $key => $value) {
-            $pub .= "<tr>";
-            foreach ($value as $k => $v) {
-                $pub .= " <td > $v </td >";
-            }
-            $pub .= " </tr>";
-        }
-        echo $pub;
-        ?>
-
+        <?php endforeach; ?>
         </tr>
 
     </table>

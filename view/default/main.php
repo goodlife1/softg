@@ -6,14 +6,15 @@
 <meta name="keywords" content="test" />
 <meta name="description" content="Тестове завдання" />
 <link href="/view/default/templatemo_style.css" rel="stylesheet" type="text/css" />
+    <script src="/view/default/js/jquery-3.1.1.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.js"></script>
 </head>
 <body>
 <div id="logo"><a href="/"><img src="/view/default/images/logo.png" width="250" height="34"><a></div>
 <div id="menu">
     <ul class="menu_list">
-
         <li><a href="http://www.softgroup.ua" target="_parent">Soft Group</a></li>
-        <li><a href="/author" target="_parent">Автор</a></li>
+        <li><a href="/books/author" target="_parent">Автор</a></li>
         <li><a href="/" target="_parent">Головна</a></li>
             </ul>
 </div>
@@ -21,9 +22,11 @@
 </div>
 <div id="templatemo_sidebar">
 <ul class="templatemo_list">
-    <li><a href="/books/create" >Добавити книг., автор., видав.</a></li>
+    <li><a href="/books/new_book" > Нова книжка </a></li>
+    <li><a href="/books/new_publisher" > Нове видавництво </a></li>
+    <li><a href="/books/new_author" > Новий автор </a></li>
     <li><a href="/books/search" > Пошук</a></li>
-  
+
    
 </ul>
 

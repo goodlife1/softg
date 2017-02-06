@@ -76,10 +76,14 @@ class Core
 
 
     }
-    public function render_view($tpl_name){
+    public function render_view($tpl_name,$args_assoc = []){
+        if (count($args_assoc)!=0){
+            $this->args = $args_assoc;
+        }
         if(count($this->args)!=0){
             extract($this->args);
         }
+      
         include ROOT."/view/default/" . $tpl_name . ".php";
     }
 }

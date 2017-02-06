@@ -21,6 +21,7 @@ class Database extends app\Validator
         $obj_mysqli = @new mysqli('localhost', 'vasya', '141995', 'soft_group');
         if (@!$obj_mysqli->error) {
             $this->_bd = $obj_mysqli;
+            $this->_bd->query("SET NAMES utf8");
 
         }
     }
@@ -35,6 +36,14 @@ class Database extends app\Validator
     public function assoc($query)
     {
         while ($result = $query->fetch_assoc()) {
+            $array[] = $result;
+        }
+        return $array;
+    }
+
+    public function fetch_array($query)
+    {
+        while ($result = $query->fetch_array()) {
             $array[] = $result;
         }
         return $array;
