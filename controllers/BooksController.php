@@ -18,55 +18,26 @@ use models\Addresses;
 use models\Authors;
 use models\Publishers;
 
-class BooksController extends Core
+class BooksController extends Controller
 {
     public $tpl;
 
-    public function actionIndex()
+    public function actionBooks()
     {
-        $model = new Index();
+        $model = new Books();
         if (isset($_POST['books']['delete'])) {
-            $model->deleteBook($_POST['books']['delete']);
-        } elseif (isset($_POST['authors']['delete'])) {
-            $model->deleteAuthor($_POST['authors']['delete']);
-        } elseif (isset($_POST['publishers']['delete'])) {
-            $model->deletePublisher($_POST['publishers']['delete']);
+            $model->delete("id = ".$_POST['books']['delete']);
         }
-        $order = "name";
         if ($_POST['sort'] != '') {
 
             $order = $_POST['sort'];
+        } else {
+            $order = "id";
         }
-
-
-        $model->initParams($order);
-
-
-        return $this->render('index', ['model' => $model]);
+        $model->getBooksInf($order);
+        return $this->render('show_books', ['model' => $model]);
     }
 
-
-    public function actionNew_Publisher()
-    {
-        $publisher = new Publishers();
-        $publisher->countries();
-        if (isset($_POST['publishers']) && $publisher->validate($_POST['publishers'])) {
-            $publisher->addNewPublisher($_POST['publishers']);
-            header("Location: /");
-        }
-        return $this->render('new_publisher', ['publisher' => $publisher]);
-    }
-
-    public function actionNew_Author()
-    {
-        $author = new Authors();
-        $author->initParams();
-        if (isset($_POST['authors']) && $author->validate($_POST['authors'])) {
-            $author->addNewAuthor($_POST['authors']);
-            header("Location: /");
-        }
-        return $this->render('new_author', ['author' => $author]);
-    }
 
     public function actionNew_Book()
     {
@@ -107,10 +78,7 @@ class BooksController extends Core
     }
 
 
-    public function actionAuthor()
-    {
-        return $this->render('author');
-    }
+  
 
 
 }

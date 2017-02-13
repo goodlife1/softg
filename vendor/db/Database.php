@@ -18,7 +18,8 @@ class Database extends app\Validator
     public function __construct()
     {
         require_once ROOT . "/config.php";
-        $obj_mysqli = @new mysqli('localhost', 'vasya', '141995', 'soft_group');
+
+        $obj_mysqli = new mysqli(HOST, USER, PASSWORD, DATA_BASE);
         if (@!$obj_mysqli->error) {
             $this->_bd = $obj_mysqli;
             $this->_bd->query("SET NAMES utf8");

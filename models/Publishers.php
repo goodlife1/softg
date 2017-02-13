@@ -16,6 +16,7 @@ class Publishers extends ActiveRecord
 {
     protected $table = "publishers";
     public $country;
+    public $publishers;
     protected function rules()
     {
         return [
@@ -24,7 +25,17 @@ class Publishers extends ActiveRecord
 
         ];
     }
-
+    public function getPublishersInf($order)
+    {
+        $result = $this->select('pub.publisher_id as id , pub.name as name , cnt.name as cnt_name , cit.name cit_name , adr.street, adr.house , adr.zip_code')
+            ->how('pub')
+            ->join([
+                ['addresses adr on pub.address_id = adr.address_id'],
+                ['cities cit  on cit.city_id = adr.city_id'],
+                ['countries cnt on cit.country_id= cnt.country_id']
+            ])->order($order)->all();
+        $this->publishers = $result;
+    }
     public function getAllPublishers()
     {
         return $this->select("publisher_id as id , name")->all();

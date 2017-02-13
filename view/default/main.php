@@ -14,7 +14,7 @@
 <div id="menu">
     <ul class="menu_list">
         <li><a href="http://www.softgroup.ua" target="_parent">Soft Group</a></li>
-        <li><a href="/books/author" target="_parent">Автор</a></li>
+        <li><a href="/index/author" target="_parent">Автор</a></li>
         <li><a href="/" target="_parent">Головна</a></li>
             </ul>
 </div>
@@ -22,9 +22,14 @@
 </div>
 <div id="templatemo_sidebar">
 <ul class="templatemo_list">
+    <li><a href="/books/books" > Всі книжки </a></li>
     <li><a href="/books/new_book" > Нова книжка </a></li>
-    <li><a href="/books/new_publisher" > Нове видавництво </a></li>
-    <li><a href="/books/new_author" > Новий автор </a></li>
+    <li><a href="/authors/authors" > Всі автора </a></li>
+    <li><a href="/authors/new_author" > Новий автор </a></li>
+    <li><a href="/publishers/publisher" > Всі видавництва </a></li>
+    <li><a href="/publishers/new_publisher" > Нове видавництво </a></li>
+
+
     <li><a href="/books/search" > Пошук</a></li>
 
    

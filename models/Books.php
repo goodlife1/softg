@@ -19,13 +19,27 @@ class Books extends ActiveRecord
     public $publisher;
     public $genres;
     protected $table = "books";
-
+    public $books;
     protected function rules()
     {
         return [
             [['book_name', 'count_page', 'date_published', 'date_admission'], 'required', 'message' => 'Всі поля мають бути заповнені'],
             [['date_admission'], 'date', 'message' => 'Дата має бути у вигляді рік-міс-день наприклад 1998-05-13'],
         ];
+    }
+
+    public function getBooksInf($order)
+    {
+
+        $result = $this->select('bk.id as id ,bk.name as name, au.name as author_name, au.last_name , gs.genre , 
+                               bk.count_pages, bk.publishing_year, ps.name as publication_name,bk.date_of_receipt')
+            ->how('bk')
+            ->join([
+                    ['authors au on bk.author_id = au.author_id'],
+                    ['genres gs on bk.genres_id = gs.genres_id'],
+                    ['publishers ps on bk.publisher_id = ps.publisher_id']]
+            )->order($order)->all();
+        $this->books = $result;
     }
 
     public function addNewBook($array)

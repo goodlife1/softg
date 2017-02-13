@@ -49,7 +49,7 @@ class ActiveRecord extends \Database
         return $this;
     }
 
-    protected function delete($condition)
+    public function delete($condition)
     {
         $this->sql = "DELETE FROM " . $this->table . " WHERE " . $condition;
         echo $this->sql;

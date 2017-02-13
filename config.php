@@ -1,5 +1,5 @@
 <?php
-$host ="localhost";
-$user_name ="vasya";
-$password ="141995";
-$data_base = "soft_group";
+define("HOST", 'localhost');
+define("USER", 'vasya');
+define("PASSWORD", '141995');
+define("DATA_BASE", 'soft_group');

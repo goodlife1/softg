@@ -17,7 +17,7 @@ class App
             $this->runController($url);
         } else {
 
-            $this->runController('books');
+            $this->runController('index');
         }
     }
 

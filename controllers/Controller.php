@@ -9,7 +9,7 @@
 namespace controllers;
 
 
-class Core
+class Controller
 {
 
     public $valid_error = array();
