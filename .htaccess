@@ -1,10 +1,9 @@
-AddDefaultCharset UTF-8
-RewriteEngine on
-RewriteBase /
-Options All -Indexes
-RewriteCond %{REQUEST_FILENAME} -s [OR]
-RewriteCond %{REQUEST_FILENAME} -l [OR]
-RewriteCond %{REQUEST_FILENAME} -d
-RewriteRule ^view/(.*)$ view/$1 [L]
-RewriteRule ^.*$ [NC,L]
-RewriteRule ^.*$ index.php [NC,L]
+
+
+Options +FollowSymlinks
+
+Options +SymLinksIfOwnerMatch
+
+RewriteEngine On
+
+RewriteRule ^(.*)$ /public/$1 [L]
